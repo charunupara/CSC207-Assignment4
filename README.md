@@ -189,4 +189,5 @@ When we increase the number of organisms, we can see that the result does not co
 
 
 **Conclusion**
+
 If we have a population where the ratio of one type of organism to the other is small, there is little to no chance that the outnumbered one will prevail. However, when the population is evenly divided, then the result doesn’t follow any pattern since the simulation randomizes the outcome.
