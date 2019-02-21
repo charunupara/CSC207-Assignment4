@@ -1,11 +1,13 @@
 
 public class Cooperator extends Organism {
 
+  /* Constructor */
   public Cooperator() {
     super();
     this.coopProb = 1;
   }
   
+  /* Methods */
   @Override
   public String getType() {
     return "Cooperator";

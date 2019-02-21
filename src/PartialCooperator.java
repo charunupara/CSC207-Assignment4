@@ -1,12 +1,13 @@
 import java.util.Random;
 
 public class PartialCooperator extends Organism {
-
+  /* Constructor */
   public PartialCooperator() {
     super();
     this.coopProb = 0.5;
   }
-
+  
+  /* Methods */
   @Override
   public String getType() {
     return "PartialCooperator";

@@ -1,11 +1,13 @@
 
 public class Defector extends Organism {
-
+  
+  /* Constructor */
   public Defector() {
     super();
     this.coopProb = 0;
   }
-
+  
+  /* Methods */
   @Override
   public String getType() {
     return "Defector";

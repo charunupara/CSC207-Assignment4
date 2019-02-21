@@ -4,9 +4,10 @@ import java.util.Random;
 
 public class Population {
   PrintWriter pen = new PrintWriter(System.out, true);
-
+  // create the array to store all organisms
   ArrayList<Organism> popList;
 
+  /* Constructor */
   public Population(Pair<String, Integer>[] counts) throws IllegalArgumentException {
     this.popList = new ArrayList<Organism>();
 
@@ -14,37 +15,38 @@ public class Population {
       Pair<String, Integer> currentPair = counts[i];
 
       int check = 0;
-
+      // add the Cooperators to the array
       if (currentPair.getLeft().equals("Cooperator")) {
         for (int j = 0; j < currentPair.getRight(); j++) {
           Cooperator current = new Cooperator();
           this.popList.add(current);
-          check++;
         }
+        check++;
       }
-
+      // add the Defectors to the array
       if (currentPair.getLeft().equals("Defector")) {
         for (int j = 0; j < currentPair.getRight(); j++) {
           Defector current = new Defector();
           this.popList.add(current);
-          check++;
         }
+        check++;
       }
-
+      // add the Partial Cooperators to the array
       if (currentPair.getLeft().equals("PartialCooperator")) {
         for (int j = 0; j < currentPair.getRight(); j++) {
           PartialCooperator current = new PartialCooperator();
           this.popList.add(current);
-          check++;
         }
+        check++;
       }
-
+      // if user input is wrong
       if (check == 0) {
         throw new IllegalArgumentException("Type not recognized");
       }
     }
   }
 
+  /* Update */
   public void update() throws Exception {
     // checking every organism in population
     for (int i = 0; i < this.popList.size(); i++) {
@@ -61,26 +63,24 @@ public class Population {
         // randomize 8 organisms
         for (int j = 0; j < 8; j++) {
           int n = rand.nextInt(this.popList.size());
-
+          // if randomized number is current's position, randomize again
           while (n == i) {
             n = rand.nextInt(this.popList.size());
           }
 
           for (int k = 0; k < 8; k++) {
+            // if randomized number is already in the list, randomize again
             while (n == randCount[k]) {
               n = rand.nextInt(this.popList.size());
-            }
-
+            } // else put in array
             randCount[j] = n;
           }
-
+          // give energy to these 8
           for (int k = 0; k < 8; k++) {
-
             this.popList.get(randCount[k]).incrementEnergy();
           }
         }
-
-      } // cooperate
+      }
 
       // if organism is ready to reproduce
       if (current.getEnergy() >= 10) {
@@ -105,29 +105,30 @@ public class Population {
           PartialCooperator newOrg = new PartialCooperator();
           this.popList.set(n, newOrg);
         }
-      } // reproduce
-
+      }
     }
+  }
 
-  }// update
-
+  /* calculateCooperationMean */
   public double calculateCooperationMean() {
     double result = 0;
-
+    // add all probability
     for (int i = 0; i < this.popList.size(); i++) {
       result += this.popList.get(i).coopProb;
     }
-
+    // then di
     result = result / this.popList.size();
 
     return result;
   }
 
+  /* getPopulationCounts */
   public Pair<String, Integer>[] getPopulationCounts() {
     int coopCount = 0;
     int defectCount = 0;
     int partialCount = 0;
 
+    // go through population and increment each count
     for (int i = 0; i < this.popList.size(); i++) {
       Organism current = this.popList.get(i);
 
@@ -144,14 +145,16 @@ public class Population {
       }
     }
 
+    // put counts in respective pairs
     Pair<String, Integer> coopPair = new Pair<String, Integer>("Cooperator", coopCount);
     Pair<String, Integer> defectPair = new Pair<String, Integer>("Defector", defectCount);
     Pair<String, Integer> partialPair =
         new Pair<String, Integer>("PartialCooperator", partialCount);
 
+    // put pairs in pair array
     @SuppressWarnings("unchecked")
     Pair<String, Integer>[] result = (Pair<String, Integer>[]) new Pair[3];
-    
+
     result[0] = coopPair;
     result[1] = defectPair;
     result[2] = partialPair;
