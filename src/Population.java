@@ -151,7 +151,7 @@ public class Population {
 
     @SuppressWarnings("unchecked")
     Pair<String, Integer>[] result = (Pair<String, Integer>[]) new Pair[3];
-    pen.println(coopPair);
+    
     result[0] = coopPair;
     result[1] = defectPair;
     result[2] = partialPair;

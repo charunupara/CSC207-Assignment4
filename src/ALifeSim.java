@@ -28,9 +28,9 @@ public class ALifeSim {
       population.update();
     }
     pen.println("After " + iterations + " ticks:");
-    pen.println("Cooperators =  " + population.getPopulationCounts()[0]);
-    pen.println("Defectors =  " + population.getPopulationCounts()[1]);
-    pen.println("Partial =  " + population.getPopulationCounts()[2]);
+    pen.println("Cooperators =  " + population.getPopulationCounts()[0].getRight());
+    pen.println("Defectors =  " + population.getPopulationCounts()[1].getRight());
+    pen.println("Partial =  " + population.getPopulationCounts()[2].getRight());
     
     pen.println("Mean Cooperation Probability = " + population.calculateCooperationMean());
   }
