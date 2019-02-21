@@ -68,6 +68,7 @@ In all 10 runs if this experiment, the defectors completely outnumbered the coop
 For 1 defector and the rest cooperators with population size of 10, we expected to see the opposite results from the first part: the defector will be outnumbered and the average cooperation probability will be close to 1, but there is also a chance for it to be lower since there is one defector that can receive energy and reproduce.
 
 **Results**
+
 1.Mean Cooperation Probability = 1.0
 
 2.Mean Cooperation Probability = 1.0
@@ -98,6 +99,7 @@ Our prediction was correct: on 9 out of 10 runs of the experiment, the defectors
 In the larger population size: 1 defector and the rest cooperators with population size of 100, we also expect that the defector will be outnumbered and the average cooperation probability will be close to 1. There is also a much lower chance for it to be lower since the defector to cooperator ratio is very small.
 
 **Results**
+
 1.Mean Cooperation Probability = 1.0
 
 2.Mean Cooperation Probability = 1.0
